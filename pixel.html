@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>像素放大镜 · AI 的眼睛</title>
+<meta name="description" content="把照片放大到能看见每一个像素，指到哪儿就读出那格的 RGB 数值。">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css?v=20261110e">
+<link rel="stylesheet" href="css/extra.css?v=20261110e">
+</head>
+<body class="pixel">
+
+<div class="space" aria-hidden="true"></div>
+
+<header class="hud-top">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true">
+      <svg viewBox="0 0 48 48" fill="none">
+        <path d="M4 24c5.5-9 12.5-13.5 20-13.5S34.5 15 40 24c-5.5 9-12.5 13.5-20 13.5S9.5 33 4 24Z" stroke="currentColor" stroke-width="2.4"/>
+        <circle cx="20" cy="24" r="6" fill="currentColor" opacity=".85"/>
+        <circle cx="28.5" cy="19.5" r="2" fill="#fff"/>
+      </svg>
+    </span>
+    <div class="brand-text">
+      <p class="sys-code">第三单元 · 视觉</p>
+      <h1>像素放大镜</h1>
+    </div>
+  </div>
+  <div class="hud-right">
+    <a class="chip chip-link" href="index.html">← 返回选择</a>
+  </div>
+</header>
+
+<main class="px-wrap">
+  <aside class="px-side">
+    <h2>先选一张图</h2>
+    <div class="px-samples" id="samples">
+      <button class="px-sample is-active" data-src="assets/samples/leaf-ginkgo.jpg" title="银杏叶">
+        <img src="assets/samples/leaf-ginkgo.jpg" alt="银杏叶">
+      </button>
+      <button class="px-sample" data-src="assets/samples/leaf-maple.jpg" title="枫叶">
+        <img src="assets/samples/leaf-maple.jpg" alt="枫叶">
+      </button>
+      <button class="px-sample" data-src="assets/samples/leaf-ginkgo-2.jpg" title="银杏叶 2">
+        <img src="assets/samples/leaf-ginkgo-2.jpg" alt="银杏叶">
+      </button>
+      <button class="px-sample" data-src="assets/samples/leaf-maple-2.jpg" title="枫叶 2">
+        <img src="assets/samples/leaf-maple-2.jpg" alt="枫叶">
+      </button>
+      <button class="px-sample" data-src="assets/samples/leaf-small.png" title="一张只有 96×96 的小图">
+        <img src="assets/samples/leaf-small.png" alt="小图">
+      </button>
+    </div>
+
+    <label class="px-upload" for="uploadInput">
+      <span>上传自己的照片</span>
+      <small>也可以把图片拖进右边画面</small>
+      <input id="uploadInput" type="file" accept="image/*" hidden>
+    </label>
+
+    <div class="px-steps">
+      <p><b>怎么玩</b></p>
+      <ol>
+        <li>点右上角的放大镜图标，鼠标就会变成放大镜。</li>
+        <li>滚轮，或键盘上的 ↑ ↓，把画面放大。</li>
+        <li>放大到能看见小方块，准星指到哪格，就显示哪格的红、绿、蓝。</li>
+        <li>按住鼠标拖动，可以移动画面。</li>
+      </ol>
+    </div>
+  </aside>
+
+  <section class="px-stage" id="stage">
+    <canvas id="view"></canvas>
+    <div class="px-empty" id="emptyTip">正在载入图片…</div>
+
+    <div class="px-topbar">
+      <span class="px-zoom" id="zoomBadge">×1.0</span>
+      <button class="px-mag" id="magBtn" title="放大镜（M）" aria-pressed="false">
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="13.5" cy="13.5" r="8" stroke="currentColor" stroke-width="2.6"/>
+          <path d="M19.5 19.5 27 27" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/>
+        </svg>
+        <span>放大镜</span>
+      </button>
+    </div>
+
+    <div class="px-tools">
+      <button class="px-btn" id="zoomOut" title="缩小">−</button>
+      <button class="px-btn" id="zoomIn" title="放大">＋</button>
+      <button class="px-btn wide" id="fitBtn" title="适应窗口">适应窗口</button>
+      <button class="px-btn wide" id="oneBtn" title="按原尺寸显示">原尺寸</button>
+    </div>
+
+    <div class="px-readout" id="readout" hidden>
+      <div class="px-swatch" id="swatch"></div>
+      <div class="px-values">
+        <p class="px-rgb" id="rgbText">R – G – B –</p>
+        <p class="px-hex" id="hexText">#------</p>
+        <p class="px-pos" id="posText">指到一个像素上</p>
+      </div>
+    </div>
+
+    <div class="px-tip" id="tip">点右上角“放大镜”，再用滚轮或 ↑ ↓ 放大</div>
+  </section>
+</main>
+
+<script src="js/pixel.js?v=20261110e"></script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+/* 首页（二选一）与像素放大镜页面的样式，配合 style.css 的变量与按钮 */
+
+body.home{overflow:auto;min-height:100vh;display:flex;flex-direction:column}
+.chip-link{text-decoration:none}
+.chip-link:hover{border-color:var(--teal);color:var(--teal-d)}
+
+.home-main{
+  position:relative;z-index:1;flex:1;width:100%;max-width:1160px;margin:0 auto;
+  padding:8px 24px 18px;display:flex;flex-direction:column;justify-content:center;gap:22px;
+}
+.home-lead{
+  margin:0;text-align:center;font-size:20px;color:var(--sub);
+}
+.home-lead b{color:var(--teal-d)}
+.home-cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.choice{
+  display:flex;flex-direction:column;gap:12px;padding:28px;
+  background:#fff;border:2px solid var(--line-2);border-radius:22px;
+  text-decoration:none;color:inherit;
+  transition:transform .18s, box-shadow .2s, border-color .2s;
+}
+.choice:hover{transform:translateY(-3px);border-color:var(--teal);box-shadow:0 18px 34px -24px rgba(20,108,98,.6)}
+.choice-num{font-size:13px;font-weight:800;letter-spacing:2px;color:var(--teal)}
+.choice-icon{
+  width:66px;height:66px;border-radius:18px;display:grid;place-items:center;
+  color:var(--teal-d);background:var(--teal-l);
+}
+.choice-icon svg{width:40px;height:40px}
+.choice h2{margin:0;font-size:27px;color:var(--ink)}
+.choice p{margin:0;font-size:15px;line-height:1.7;color:var(--sub)}
+.choice-go{margin-top:auto;padding-top:6px;font-size:15px;font-weight:800;color:var(--orange-d)}
+.home-note{margin:0;text-align:center;font-size:13px;color:var(--sub-2)}
+
+/* ---------- 像素放大镜 ---------- */
+body.pixel{overflow:hidden}
+.px-wrap{
+  position:relative;z-index:1;
+  height:calc(100vh - 74px - 52px);
+  display:grid;grid-template-columns:252px minmax(0,1fr);gap:16px;
+  padding:12px 24px;
+}
+.px-side{
+  display:flex;flex-direction:column;gap:14px;min-height:0;overflow:auto;
+  background:#fff;border:2px solid var(--line-2);border-radius:18px;padding:16px;
+}
+.px-side h2{margin:0;font-size:19px;color:var(--ink)}
+.px-samples{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.px-sample{
+  padding:0;aspect-ratio:1;overflow:hidden;cursor:pointer;
+  background:#F1F7F6;border:2px solid var(--line);border-radius:12px;
+}
+.px-sample img{width:100%;height:100%;object-fit:cover;display:block}
+.px-sample:hover{border-color:var(--line-2)}
+.px-sample.is-active{border-color:var(--teal);box-shadow:0 0 0 3px rgba(38,166,154,.18)}
+.px-upload{
+  display:block;padding:14px;text-align:center;cursor:pointer;
+  background:var(--teal-l);border:2px dashed var(--line-2);border-radius:14px;
+}
+.px-upload span{display:block;font-size:15px;font-weight:800;color:var(--teal-d)}
+.px-upload small{font-size:12.5px;color:var(--sub)}
+.px-upload:hover{border-color:var(--teal)}
+.px-steps{font-size:13px;color:var(--sub);line-height:1.6}
+.px-steps p{margin:0}
+.px-steps b{color:var(--ink)}
+.px-steps ol{margin:6px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+
+.px-stage{
+  position:relative;min-width:0;min-height:0;overflow:hidden;border-radius:18px;
+  border:2px solid var(--line-2);
+  background:repeating-conic-gradient(#F1F7F6 0% 25%, #FFFFFF 0% 50%) 50% / 22px 22px;
+}
+#view{display:block;width:100%;height:100%;cursor:grab;touch-action:none}
+#view.is-drag{cursor:grabbing}
+#view.is-mag{
+  cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34"><circle cx="14" cy="14" r="8.5" fill="rgba(255,255,255,.55)" stroke="%23146C62" stroke-width="2.6"/><path d="M20.5 20.5 30 30" stroke="%23146C62" stroke-width="3.6" stroke-linecap="round"/></svg>') 14 14, zoom-in;
+}
+#view.is-mag.is-drag{cursor:grabbing}
+
+.px-topbar{position:absolute;top:12px;right:12px;display:flex;gap:10px;align-items:center;z-index:3}
+.px-zoom{
+  padding:7px 15px;border-radius:999px;font-size:14px;font-weight:800;color:var(--teal-d);
+  background:rgba(255,255,255,.94);border:1.5px solid var(--line-2);
+}
+.px-mag{
+  display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;
+  border-radius:999px;border:2px solid var(--line-2);background:#fff;color:var(--teal-d);
+  font-size:14px;font-weight:800;cursor:pointer;
+}
+.px-mag svg{width:20px;height:20px}
+.px-mag:hover{border-color:var(--teal)}
+.px-mag.is-on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+.px-tools{position:absolute;left:12px;bottom:12px;display:flex;gap:8px;z-index:3}
+.px-btn{
+  height:38px;min-width:46px;padding:0 10px;border-radius:10px;cursor:pointer;
+  border:1.5px solid var(--line-2);background:rgba(255,255,255,.95);
+  color:var(--teal-d);font-size:16px;font-weight:800;
+}
+.px-btn:hover{border-color:var(--teal)}
+.px-btn.wide{font-size:13.5px}
+
+.px-readout{
+  position:absolute;right:12px;bottom:12px;z-index:3;pointer-events:none;
+  display:flex;gap:12px;align-items:center;min-width:216px;padding:12px 14px;
+  background:rgba(255,255,255,.96);border:1.5px solid var(--line-2);border-radius:14px;
+}
+.px-swatch{width:54px;height:54px;border-radius:10px;border:1px solid var(--line);background:#fff;flex:none}
+.px-rgb{margin:0;font-size:15px;font-weight:800;color:var(--ink)}
+.px-hex{margin:2px 0 0;font-size:12.5px;color:var(--sub-2)}
+.px-pos{margin:2px 0 0;font-size:12.5px;color:var(--sub)}
+
+.px-tip{
+  position:absolute;left:50%;top:12px;transform:translateX(-50%);z-index:2;pointer-events:none;
+  padding:7px 16px;border-radius:999px;font-size:13px;color:#fff;
+  background:rgba(20,108,98,.92);max-width:min(70%,520px);
+}
+.px-empty{position:absolute;inset:0;display:grid;place-items:center;font-size:15px;color:var(--sub)}
+
+@media (max-width:1100px){
+  body.pixel{overflow:auto}
+  .px-wrap{height:auto;grid-template-columns:1fr;padding:12px 16px 20px}
+  .px-side{max-height:none}
+  .px-stage{height:66vh;min-height:380px}
+}
+@media (max-width:760px){
+  .home-cards{grid-template-columns:1fr}
+  .home-lead{font-size:17px}
+  .choice{padding:22px}
+  .choice h2{font-size:23px}
+  .px-readout{left:12px;right:12px;bottom:60px;min-width:0}
+  .px-tools{bottom:10px}
+}
