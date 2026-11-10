@@ -3,18 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI 的眼睛 · 视觉训练舱</title>
+<title>AI 的眼睛 · 视觉实验室</title>
 <meta name="description" content="建立数据集、训练一个图像分类模型，再用新照片考考它。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=20261105">
+<link rel="stylesheet" href="css/style.css?v=20261110">
 </head>
 <body>
-<div class="space" aria-hidden="true">
-  <div class="stars stars-a"></div>
-  <div class="stars stars-b"></div>
-  <div class="horizon"></div>
-  <div class="scanlines"></div>
-</div>
+<div class="space" aria-hidden="true"></div>
 
 <header class="hud-top">
   <div class="brand">
@@ -26,7 +21,7 @@
       </svg>
     </span>
     <div class="brand-text">
-      <p class="sys-code">VISION LAB · UNIT 03</p>
+      <p class="sys-code">第三单元 · 视觉</p>
       <h1>AI 的眼睛</h1>
     </div>
   </div>
@@ -40,7 +35,7 @@
   <!-- 01 数据集 -->
   <section class="panel panel-data" id="step-classes">
     <div class="panel-head">
-      <span class="panel-code">BAY 01</span>
+      <span class="panel-code">STEP 01</span>
       <h2>数据集</h2>
       <span class="panel-status" id="classStatus">0 类 · 0 张</span>
     </div>
@@ -62,7 +57,7 @@
         <div class="empty-icon" aria-hidden="true">
           <svg viewBox="0 0 64 64" fill="none"><rect x="7" y="12" width="30" height="24" rx="4" stroke="currentColor" stroke-width="2.4"/><path d="M12 40h20M40 22h17v30H28" stroke="currentColor" stroke-width="2.4"/><circle cx="22" cy="24" r="3" fill="currentColor"/></svg>
         </div>
-        <p><b>数据舱是空的</b>先建立一个类别，再往里装照片。</p>
+        <p><b>还没有任何类别</b>先建立一个类别，再往里放照片。</p>
       </div>
     </div>
     <div class="panel-foot">小提示：每类 5–20 张，白底、正面、光线均匀，AI 更容易学会。</div>
@@ -71,8 +66,8 @@
   <!-- 02 训练核心 -->
   <section class="panel panel-core" id="step-train">
     <div class="panel-head">
-      <span class="panel-code">CORE 02</span>
-      <h2>训练核心</h2>
+      <span class="panel-code">STEP 02</span>
+      <h2>训练</h2>
     </div>
     <div class="panel-body core-body">
       <div class="reactor" id="reactor">
@@ -98,14 +93,14 @@
       <div class="progress" id="trainProgress" hidden><span id="trainStage">正在准备数据…</span></div>
       <p class="hint" id="trainHint" hidden></p>
     </div>
-    <div class="panel-foot badge" id="modelBadge" hidden><i></i>模型已就绪，可以去测试舱了</div>
+    <div class="panel-foot badge" id="modelBadge" hidden><i></i>模型已就绪，可以开始测试</div>
   </section>
 
   <!-- 03 测试舱 -->
   <section class="panel panel-test" id="step-test">
     <div class="panel-head">
-      <span class="panel-code">SCAN 03</span>
-      <h2>测试舱</h2>
+      <span class="panel-code">STEP 03</span>
+      <h2>测试</h2>
     </div>
     <div class="panel-body test-body" id="testPanel">
       <label class="dropzone" id="dropzone" for="testFile">
@@ -120,7 +115,7 @@
 
       <div class="test-lock" id="testLock">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8.5 10V7.5a3.5 3.5 0 1 1 7 0V10" stroke="currentColor" stroke-width="1.8"/></svg>
-        <p id="testLockText">先完成训练，才能打开测试舱。</p>
+        <p id="testLockText">先完成训练，才能开始测试。</p>
       </div>
 
       <div class="result" id="testResult" hidden></div>
@@ -130,7 +125,7 @@
 </main>
 
 <footer class="hud-bottom">
-  <span><i class="live"></i>系统在线 · 所有照片只保存在这台设备的浏览器里</span>
+  <span><i class="live"></i>所有照片只保存在这台设备的浏览器里，不会上传</span>
   <button class="link-btn" id="clearAllBtn">清空全部数据</button>
 </footer>
 
@@ -148,8 +143,8 @@
   </div>
 </div>
 
-<script src="js/db.js?v=20261105"></script>
-<script src="js/features.js?v=20261105"></script>
-<script src="js/app.js?v=20261105"></script>
+<script src="js/db.js?v=20261110"></script>
+<script src="js/features.js?v=20261110"></script>
+<script src="js/app.js?v=20261110"></script>
 </body>
 </html>

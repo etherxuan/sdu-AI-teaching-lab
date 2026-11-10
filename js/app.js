@@ -2,7 +2,7 @@
 (function () {
   'use strict';
 
-  const PALETTE = ['#26a69a', '#f39c12', '#5b8def', '#d6604f', '#8e6fd8', '#3fb27f', '#e07aa8', '#7a8b99'];
+  const PALETTE = ['#2E7D74', '#C4841D', '#4169B8', '#B4462F', '#6B4FA8', '#3B8A5E', '#B85C86', '#5F707D'];
   const $ = (id) => document.getElementById(id);
 
   const state = {
