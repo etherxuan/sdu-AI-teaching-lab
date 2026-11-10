@@ -165,13 +165,6 @@ button,input{font-family:inherit}
 }
 .btn.add:hover{background:#1F948A}
 
-.suggest{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}
-.suggest button{
-  font-size:13px;color:var(--teal-d);cursor:pointer;padding:6px 14px;
-  background:var(--teal-l);border:1.5px solid var(--line-2);border-radius:999px;
-}
-.suggest button:hover{background:#D3EDE8}
-
 .class-grid{display:flex;flex-direction:column;gap:14px}
 .class-card{
   position:relative;padding:12px 14px 12px 18px;border-radius:14px;

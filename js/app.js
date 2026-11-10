@@ -28,7 +28,6 @@
   const els = {
     className: $('className'),
     addClassBtn: $('addClassBtn'),
-    suggest: $('suggest'),
     classGrid: $('classGrid'),
     classEmpty: $('classEmpty'),
     classStatus: $('classStatus'),
@@ -88,12 +87,6 @@
     els.className.addEventListener('keydown', (e) => {
       if (e.key === 'Enter') addClass();
     });
-    els.suggest.addEventListener('click', (e) => {
-      const btn = e.target.closest('button[data-name]');
-      if (!btn) return;
-      els.className.value = btn.dataset.name;
-      els.className.focus();
-    });
     els.classGrid.addEventListener('click', onClassGridClick);
     els.trainBtn.addEventListener('click', startTraining);
     els.testFile.addEventListener('change', () => {
@@ -149,7 +142,6 @@
     const total = state.classes.reduce((n, c) => n + c.images.length, 0);
     els.classStatus.textContent = `${state.classes.length} 类 · ${total} 张`;
     els.classEmpty.hidden = state.classes.length > 0;
-    els.suggest.hidden = state.classes.length > 0;
     els.classGrid.innerHTML = state.classes.map(classCardHTML).join('');
     if (els.statClasses) els.statClasses.textContent = state.classes.length;
     if (els.statPhotos) els.statPhotos.textContent = total;
@@ -709,4 +701,11 @@
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
     }[m]));
   }
+
+  /* 给页面左下角“照片背包”用的接口 */
+  window.AILab = {
+    addPhotos(classId, files) { return addPhotos(classId, files); },
+    testFile(file) { return handleTestFile(file); },
+    modelReady() { return state.modelValid; }
+  };
 })();

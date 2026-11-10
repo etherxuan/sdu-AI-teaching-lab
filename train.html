@@ -6,8 +6,8 @@
 <title>AI 的眼睛 · 视觉实验室</title>
 <meta name="description" content="建立数据集、训练一个图像分类模型，再用新照片考考它。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=20261110g">
-<link rel="stylesheet" href="css/extra.css?v=20261110g">
+<link rel="stylesheet" href="css/style.css?v=20261110i">
+<link rel="stylesheet" href="css/extra.css?v=20261110i">
 </head>
 <body>
 <div class="space" aria-hidden="true"></div>
@@ -47,12 +47,6 @@
         <button class="btn add" id="addClassBtn" title="新建类别">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2.4"/></svg>
         </button>
-      </div>
-      <div class="suggest" id="suggest">
-        <button type="button" data-name="银杏叶">银杏叶</button>
-        <button type="button" data-name="枫叶">枫叶</button>
-        <button type="button" data-name="苹果">苹果</button>
-        <button type="button" data-name="香蕉">香蕉</button>
       </div>
       <div class="class-grid" id="classGrid"></div>
       <div class="empty-state" id="classEmpty">
@@ -126,6 +120,33 @@
   </section>
 </main>
 
+<div class="pack" id="pack">
+  <button class="pack-toggle" id="packToggle" aria-expanded="false" aria-controls="packPanel">
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 8V6.5A4 4 0 0 1 12 2.5a4 4 0 0 1 4 4V8" stroke="currentColor" stroke-width="1.8"/>
+      <rect x="3" y="8" width="18" height="13" rx="3.2" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M3 14.5h18" stroke="currentColor" stroke-width="1.6"/>
+      <path d="M9.5 17.5h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </svg>
+    <b>照片背包</b>
+    <em>5 类 · 100 张</em>
+  </button>
+
+  <div class="pack-panel" id="packPanel" hidden>
+    <div class="pack-head">
+      <b>照片背包</b>
+      <span>拖一张到左边类别卡片；拖到右边虚线框，就是考它</span>
+      <button class="pack-close" id="packClose" title="收起" aria-label="收起">×</button>
+    </div>
+    <div class="pack-tabs" id="packTabs"></div>
+    <div class="pack-grid" id="packGrid"></div>
+    <div class="pack-foot">
+      <span class="pack-dragall" id="packAll" draggable="true">整包 20 张 · 拖到类别卡片</span>
+      <span class="pack-tip" id="packTip">也可以先点一张，再点类别卡片</span>
+    </div>
+  </div>
+</div>
+
 <footer class="hud-bottom">
   <span><i class="live"></i>所有照片只保存在这台设备的浏览器里，不会上传</span>
   <button class="link-btn" id="clearAllBtn">清空全部数据</button>
@@ -147,6 +168,7 @@
 
 <script src="js/db.js?v=20261110"></script>
 <script src="js/features.js?v=20261110"></script>
-<script src="js/app.js?v=20261110"></script>
+<script src="js/app.js?v=20261110i"></script>
+<script src="js/pack.js?v=20261110i"></script>
 </body>
 </html>
