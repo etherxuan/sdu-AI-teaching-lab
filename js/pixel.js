@@ -18,6 +18,7 @@
   var MAX_SCALE = 64;
   var st = {
     img: null,
+    display: null,
     iw: 0,
     ih: 0,
     scale: 1,
@@ -79,7 +80,7 @@
     var h = st.ih * st.scale;
 
     ctx.imageSmoothingEnabled = st.scale < 3;
-    ctx.drawImage(st.img, st.ox, st.oy, w, h);
+    ctx.drawImage(st.display || st.img, st.ox, st.oy, w, h);
 
     // 放大到一定程度后画出像素网格
     if (st.scale >= 4) {
@@ -109,6 +110,8 @@
       ctx.stroke();
       ctx.restore();
     }
+
+    if (fst.on) drawScanWindow();
 
     if (st.mag && st.hover) drawHover();
 
@@ -226,6 +229,12 @@
       st.ih = img.naturalHeight;
       st.hover = null;
       readout.hidden = true;
+      stopScan();
+      fst.done = false;
+      st.display = null;
+      restoreBtn.disabled = true;
+      scanBtn.disabled = false;
+      scanBtn.textContent = '开始扫描';
       prepareProbe();
       st.fit = computeFit();
       st.scale = st.fit;
@@ -386,7 +395,241 @@
     render();
   });
 
+  /* ---------- 边缘扫描：小窗口从左到右、从上到下扫一遍 ---------- */
+  var work = document.createElement('canvas');
+  var wctx = work.getContext('2d', { willReadFrequently: true });
+  var kSizeSel = document.getElementById('kSize');
+  var kPresetSel = document.getElementById('kPreset');
+  var kernelBox = document.getElementById('kernel');
+  var kNote = document.getElementById('kNote');
+  var scanBtn = document.getElementById('scanBtn');
+  var restoreBtn = document.getElementById('restoreBtn');
+
+  var fst = {
+    size: 3,
+    preset: 'gx',
+    on: false,
+    done: false,
+    x: 0,
+    y: 0,
+    per: 1,
+    timer: 0,
+    src: null,
+    out: null,
+    kx: null,
+    ky: null
+  };
+
+  function smoothRow(n) {
+    if (n === 5) return [1, 4, 6, 4, 1];
+    if (n === 7) return [1, 6, 15, 20, 15, 6, 1];
+    return [1, 2, 1];
+  }
+
+  function derivRow(n) {
+    if (n === 5) return [-1, -2, 0, 2, 1];
+    if (n === 7) return [-1, -2, -3, 0, 3, 2, 1];
+    return [-1, 0, 1];
+  }
+
+  // 竖着的边：左右相减；横着的边：上下相减
+  function presetKernel(kind, n) {
+    var s = smoothRow(n), d = derivRow(n), m = [], i, j, row;
+    for (i = 0; i < n; i++) {
+      row = [];
+      for (j = 0; j < n; j++) row.push(kind === 'gy' ? d[i] * s[j] : s[i] * d[j]);
+      m.push(row);
+    }
+    return m;
+  }
+
+  function noteOf(preset, n) {
+    if (preset === 'gx') return '左边乘负数、右边乘正数：颜色左右一变，算出来的数就大，竖着的边就亮。';
+    if (preset === 'gy') return '上边乘负数、下边乘正数：颜色上下一变，算出来的数就大，横着的边就亮。';
+    if (preset === 'mag') return '同时算竖边和横边，再把两个结果合起来：哪里有边，哪里就亮。';
+    return '每格一个权重，' + (n * n) + '个数一起乘、一起加；想改哪格就改哪格。';
+  }
+
+  function drawKernelEditor(values) {
+    var n = fst.size, html = '', i, j;
+    kernelBox.style.gridTemplateColumns = 'repeat(' + n + ', 26px)';
+    for (i = 0; i < n; i++) {
+      for (j = 0; j < n; j++) {
+        html += '<input type="number" min="-16" max="16" step="1" value="' + values[i][j] + '">';
+      }
+    }
+    kernelBox.innerHTML = html;
+  }
+
+  function readKernel() {
+    var n = fst.size;
+    var inputs = kernelBox.querySelectorAll('input');
+    var m = [], k = 0, i, j;
+    for (i = 0; i < n; i++) {
+      m.push([]);
+      for (j = 0; j < n; j++) m[i].push(Number(inputs[k++].value) || 0);
+    }
+    return m;
+  }
+
+  function refreshKernel() {
+    fst.size = Number(kSizeSel.value);
+    fst.preset = kPresetSel.value;
+    var n = fst.size;
+    drawKernelEditor(presetKernel(fst.preset === 'gy' ? 'gy' : 'gx', n));
+    kNote.textContent = noteOf(fst.preset, n);
+  }
+
+  function drawScanWindow() {
+    var n = fst.size;
+    var half = (n - 1) / 2;
+    var x = Math.min(Math.max(fst.x, half), st.iw - 1 - half);
+    var y = Math.min(Math.max(fst.y, half), st.ih - 1 - half);
+    var s = Math.max(n * st.scale, 20);
+    var sx = st.ox + (x + 0.5) * st.scale - s / 2;
+    var sy = st.oy + (y + 0.5) * st.scale - s / 2;
+    ctx.save();
+    ctx.fillStyle = 'rgba(245,148,30,.25)';
+    ctx.fillRect(sx, sy, s, s);
+    ctx.strokeStyle = '#F5941E';
+    ctx.lineWidth = 2;
+    ctx.strokeRect(sx + 0.5, sy + 0.5, s, s);
+    ctx.restore();
+  }
+
+  function convAt(sd, x, y, k) {
+    var n = k.length, half = (n - 1) >> 1;
+    var sr = 0, sg = 0, sb = 0, dy, dx, sy, sx, row, w, o;
+    for (dy = 0; dy < n; dy++) {
+      sy = y + dy - half;
+      if (sy < 0) sy = 0; else if (sy >= st.ih) sy = st.ih - 1;
+      row = k[dy];
+      for (dx = 0; dx < n; dx++) {
+        sx = x + dx - half;
+        if (sx < 0) sx = 0; else if (sx >= st.iw) sx = st.iw - 1;
+        w = row[dx];
+        o = (sy * st.iw + sx) << 2;
+        sr += sd[o] * w;
+        sg += sd[o + 1] * w;
+        sb += sd[o + 2] * w;
+      }
+    }
+    return [sr, sg, sb];
+  }
+
+  function beginScan() {
+    if (!st.img || fst.on) return;
+    stopScan();
+    setMag(false);
+    fst.src = pctx.getImageData(0, 0, st.iw, st.ih);
+    work.width = st.iw;
+    work.height = st.ih;
+    wctx.drawImage(st.img, 0, 0);
+    fst.out = wctx.getImageData(0, 0, st.iw, st.ih);
+
+    if (fst.preset === 'custom') {
+      fst.kx = readKernel();
+      fst.ky = null;
+    } else if (fst.preset === 'gy') {
+      fst.kx = presetKernel('gy', fst.size);
+      fst.ky = null;
+    } else if (fst.preset === 'gx') {
+      fst.kx = presetKernel('gx', fst.size);
+      fst.ky = null;
+    } else {
+      fst.kx = presetKernel('gx', fst.size);
+      fst.ky = presetKernel('gy', fst.size);
+    }
+
+    st.display = work;
+    fst.on = true;
+    fst.done = false;
+    fst.x = 0;
+    fst.y = 0;
+    fst.per = Math.max(1, Math.ceil(st.iw * st.ih / (2.2 * 60)));
+    scanBtn.disabled = true;
+    scanBtn.textContent = '扫描中…';
+    restoreBtn.disabled = true;
+    setTip('小窗口正在从左往右、从上往下扫过整张图…');
+    fitView();
+    fst.timer = setTimeout(stepScan, 16);
+  }
+
+  function stepScan() {
+    var sd = fst.src.data, od = fst.out.data;
+    var y0 = fst.y, left = fst.per, x, y, a, b, o, r, g, bl, c;
+    while (left > 0 && fst.y < st.ih) {
+      x = fst.x;
+      y = fst.y;
+      a = convAt(sd, x, y, fst.kx);
+      r = Math.abs(a[0]);
+      g = Math.abs(a[1]);
+      bl = Math.abs(a[2]);
+      if (fst.ky) {
+        c = convAt(sd, x, y, fst.ky);
+        r = Math.sqrt(r * r + c[0] * c[0]);
+        g = Math.sqrt(g * g + c[1] * c[1]);
+        bl = Math.sqrt(bl * bl + c[2] * c[2]);
+      }
+      o = (y * st.iw + x) << 2;
+      od[o] = r;
+      od[o + 1] = g;
+      od[o + 2] = bl;
+      od[o + 3] = 255;
+      fst.x++;
+      if (fst.x >= st.iw) {
+        fst.x = 0;
+        fst.y++;
+      }
+      left--;
+    }
+
+    var rows = Math.min(st.ih, fst.y + 1) - y0;
+    if (rows > 0) wctx.putImageData(fst.out, 0, 0, 0, y0, st.iw, rows);
+
+    if (fst.y >= st.ih) {
+      finishScan();
+    } else {
+      render();
+      fst.timer = setTimeout(stepScan, 16);
+    }
+  }
+
+  function finishScan() {
+    fst.on = false;
+    fst.done = true;
+    fst.timer = 0;
+    scanBtn.disabled = false;
+    scanBtn.textContent = '再扫一次';
+    restoreBtn.disabled = false;
+    setTip('扫描完成：亮起来的地方就是边。点“恢复原图”，可以回到原来的照片。');
+    render();
+  }
+
+  function stopScan() {
+    if (fst.timer) clearTimeout(fst.timer);
+    fst.timer = 0;
+    fst.on = false;
+  }
+
+  function restoreOriginal() {
+    stopScan();
+    fst.done = false;
+    st.display = null;
+    restoreBtn.disabled = true;
+    scanBtn.disabled = false;
+    scanBtn.textContent = '再扫一次';
+    setTip('已恢复原图。');
+    render();
+  }
+
+  scanBtn.addEventListener('click', beginScan);
+  restoreBtn.addEventListener('click', restoreOriginal);
+  kSizeSel.addEventListener('change', refreshKernel);
+  kPresetSel.addEventListener('change', refreshKernel);
+
   /* ---------- 启动 ---------- */
+  refreshKernel();
   measure();
   loadImage('assets/samples/leaf-ginkgo.jpg', '银杏叶');
 })();

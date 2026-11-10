@@ -6,8 +6,8 @@
 <title>像素放大镜 · AI 的眼睛</title>
 <meta name="description" content="把照片放大到能看见每一个像素，指到哪儿就读出那格的 RGB 数值。">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="css/style.css?v=20261110e">
-<link rel="stylesheet" href="css/extra.css?v=20261110e">
+<link rel="stylesheet" href="css/style.css?v=20261110g">
+<link rel="stylesheet" href="css/extra.css?v=20261110g">
 </head>
 <body class="pixel">
 
@@ -34,6 +34,7 @@
 
 <main class="px-wrap">
   <aside class="px-side">
+    <div class="px-scroll">
     <h2>先选一张图</h2>
     <div class="px-samples" id="samples">
       <button class="px-sample is-active" data-src="assets/samples/leaf-ginkgo.jpg" title="银杏叶">
@@ -59,14 +60,45 @@
       <input id="uploadInput" type="file" accept="image/*" hidden>
     </label>
 
+    <section class="px-filter">
+      <h3>边缘扫描</h3>
+      <div class="px-krow">
+        <label class="px-field">
+          <span>窗口大小</span>
+          <select id="kSize">
+            <option value="3">3 × 3</option>
+            <option value="5">5 × 5</option>
+            <option value="7">7 × 7</option>
+          </select>
+        </label>
+        <label class="px-field">
+          <span>找哪种边</span>
+          <select id="kPreset">
+            <option value="gx">竖着的边</option>
+            <option value="gy">横着的边</option>
+            <option value="mag">边缘强度</option>
+            <option value="custom">自己填数</option>
+          </select>
+        </label>
+      </div>
+      <div class="px-kernel" id="kernel"></div>
+      <p class="px-knote" id="kNote">小窗口里的数就是权重：周围的像素乘上它再相加。</p>
+    </section>
+
     <div class="px-steps">
       <p><b>怎么玩</b></p>
       <ol>
         <li>点右上角的放大镜图标，鼠标就会变成放大镜。</li>
         <li>滚轮，或键盘上的 ↑ ↓，把画面放大。</li>
         <li>放大到能看见小方块，准星指到哪格，就显示哪格的红、绿、蓝。</li>
-        <li>按住鼠标拖动，可以移动画面。</li>
+        <li>做边缘扫描：点“开始扫描”，小窗口会从左往右、从上往下扫一遍。</li>
       </ol>
+    </div>
+    </div>
+
+    <div class="px-kbtns">
+      <button class="px-run" id="scanBtn">开始扫描</button>
+      <button class="px-undo" id="restoreBtn" disabled>恢复原图</button>
     </div>
   </aside>
 
@@ -105,6 +137,6 @@
   </section>
 </main>
 
-<script src="js/pixel.js?v=20261110e"></script>
+<script src="js/pixel.js?v=20261110g"></script>
 </body>
 </html>
