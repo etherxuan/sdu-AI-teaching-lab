@@ -1,9 +1,8 @@
-/* 左下角“照片背包”：内置 5 类照片，可以拖到类别卡片（当训练照片）或测试框 */
+/* 左下角“照片背包”：内置 5 类真实照片，可多选后拖到类别卡片，或拖一张到测试框 */
 (function () {
   'use strict';
 
   var BASE = 'assets/pack/';
-  var COUNT = 20;
   var GROUPS = [
     { key: 'ginkgo', name: '银杏叶' },
     { key: 'apple', name: '苹果' },
@@ -11,6 +10,7 @@
     { key: 'strawberry', name: '草莓' },
     { key: 'banana', name: '香蕉' }
   ];
+  var counts = { ginkgo: 20, apple: 20, pear: 20, strawberry: 20, banana: 20 };
 
   var pack = document.getElementById('pack');
   var toggle = document.getElementById('packToggle');
@@ -18,13 +18,13 @@
   var closeBtn = document.getElementById('packClose');
   var tabs = document.getElementById('packTabs');
   var grid = document.getElementById('packGrid');
-  var allBtn = document.getElementById('packAll');
-  var tip = document.getElementById('packTip');
+  var selText = document.getElementById('packSelText');
+  var clearBtn = document.getElementById('packClear');
   var classGrid = document.getElementById('classGrid');
   var dropzone = document.getElementById('dropzone');
 
   var active = GROUPS[0].key;
-  var picked = null;
+  var picked = [];
 
   function pad(n) {
     return ('0' + n).slice(-2);
@@ -41,16 +41,22 @@
   function renderTabs() {
     tabs.innerHTML = GROUPS.map(function (g) {
       return '<button class="pack-tab' + (g.key === active ? ' is-active' : '') + '" data-key="' + g.key + '">' +
-        g.name + ' ' + COUNT + '</button>';
+        g.name + ' ' + counts[g.key] + '</button>';
     }).join('');
+    var total = 0;
+    GROUPS.forEach(function (g) { total += counts[g.key]; });
+    var em = toggle.querySelector('em');
+    if (em) em.textContent = GROUPS.length + ' 类 · ' + total + ' 张';
   }
 
   function renderGrid() {
     var html = '';
-    for (var i = 0; i < COUNT; i++) {
+    var n = counts[active] || 0;
+    for (var i = 0; i < n; i++) {
       var src = srcOf(active, i);
       html += '<button class="pack-item" draggable="true" data-src="' + src + '" data-name="' + nameOf(active, i) +
-        '" title="' + nameOf(active, i) + '"><img loading="lazy" src="' + src + '" alt=""></button>';
+        '" title="' + nameOf(active, i) + '"><img loading="lazy" src="' + src + '" alt="">' +
+        '<span class="pack-tag">训练</span></button>';
     }
     grid.innerHTML = html;
     refreshPicked();
@@ -59,9 +65,10 @@
   function refreshPicked() {
     var items = grid.querySelectorAll('.pack-item');
     for (var i = 0; i < items.length; i++) {
-      items[i].classList.toggle('is-picked', !!picked && items[i].getAttribute('data-src') === picked.src);
+      items[i].classList.toggle('is-picked', picked.indexOf(items[i].getAttribute('data-src')) >= 0);
     }
-    tip.textContent = picked ? ('已选 ' + picked.name + '，点一个类别卡片放进去') : '也可以先点一张，再点类别卡片';
+    selText.textContent = picked.length ? ('已选 ' + picked.length + ' 张，拖到类别卡片') : '已选 0 张';
+    clearBtn.disabled = picked.length === 0;
   }
 
   function setOpen(open) {
@@ -80,38 +87,31 @@
       });
   }
 
-  function filesOf(key) {
-    var list = [];
-    for (var i = 0; i < COUNT; i++) list.push(fileOf(srcOf(key, i)));
-    return Promise.all(list);
+  function filesOf(list) {
+    return Promise.all(list.map(fileOf));
   }
 
-  function toClass(classId, payload) {
-    var p = payload.group ? filesOf(payload.group) : Promise.all([fileOf(payload.src)]);
-    p.then(function (files) { window.AILab.addPhotos(classId, files); })
-      .catch(function () { /* 读不出来就不动，页面会自己提示 */ });
+  function toClass(classId, list) {
+    filesOf(list).then(function (files) {
+      window.AILab.addPhotos(classId, files);
+    }).catch(function () { });
   }
 
-  function toTest(payload) {
-    var p = payload.group ? fileOf(srcOf(payload.group, 0)) : fileOf(payload.src);
-    p.then(function (file) { window.AILab.testFile(file); })
-      .catch(function () { });
+  function toTest(src) {
+    fileOf(src).then(function (file) {
+      window.AILab.testFile(file);
+    }).catch(function () { });
   }
 
   /* ---------- 拖拽 ---------- */
-  panel.addEventListener('dragstart', function (e) {
-    var item = e.target.closest ? e.target.closest('.pack-item') : null;
-    if (item) {
-      e.dataTransfer.setData('application/x-pack', item.getAttribute('data-src'));
-      e.dataTransfer.setData('text/plain', item.getAttribute('data-src'));
-      e.dataTransfer.effectAllowed = 'copy';
-      return;
-    }
-    if (e.target === allBtn) {
-      e.dataTransfer.setData('application/x-pack-all', active);
-      e.dataTransfer.setData('text/plain', active);
-      e.dataTransfer.effectAllowed = 'copy';
-    }
+  grid.addEventListener('dragstart', function (e) {
+    var item = e.target.closest('.pack-item');
+    if (!item) return;
+    var src = item.getAttribute('data-src');
+    var list = picked.indexOf(src) >= 0 ? picked.slice() : [src];
+    e.dataTransfer.setData('application/x-pack', JSON.stringify(list));
+    e.dataTransfer.setData('text/plain', list.join('\n'));
+    e.dataTransfer.effectAllowed = 'copy';
   });
 
   function hasPack(dt) {
@@ -123,10 +123,14 @@
   }
 
   function payloadOf(dt) {
-    var group = dt.getData('application/x-pack-all');
-    if (group) return { group: group };
-    var one = dt.getData('application/x-pack');
-    return one ? { src: one } : null;
+    var raw = dt.getData('application/x-pack');
+    if (!raw) return null;
+    try {
+      var list = JSON.parse(raw);
+      return Array.isArray(list) && list.length ? list : null;
+    } catch (err) {
+      return [raw];
+    }
   }
 
   function dropTarget(e) {
@@ -154,42 +158,47 @@
     if (!target) return;
     e.preventDefault();
     target.classList.remove('is-drop');
-    var payload = payloadOf(e.dataTransfer);
-    if (!payload) return;
+    var list = payloadOf(e.dataTransfer);
+    if (!list) return;
     if (target.id === 'dropzone') {
-      toTest(payload);
+      toTest(list[0]);
     } else {
-      toClass(target.getAttribute('data-class'), payload);
+      toClass(target.getAttribute('data-class'), list);
     }
   });
 
-  /* ---------- 点选（没有鼠标拖动时的备选） ---------- */
+  /* ---------- 点选（多选；没有鼠标拖动时的备选） ---------- */
   grid.addEventListener('click', function (e) {
     var item = e.target.closest('.pack-item');
     if (!item) return;
     var src = item.getAttribute('data-src');
-    picked = (picked && picked.src === src) ? null : { src: src, name: item.getAttribute('data-name') };
+    var at = picked.indexOf(src);
+    if (at >= 0) picked.splice(at, 1); else picked.push(src);
     refreshPicked();
   });
 
   classGrid.addEventListener('click', function (e) {
-    if (!picked) return;
+    if (!picked.length) return;
     if (e.target.closest('[data-act]')) return;
     var card = e.target.closest('.class-card');
     if (!card) return;
-    toClass(card.getAttribute('data-class'), { src: picked.src });
+    toClass(card.getAttribute('data-class'), picked.slice());
   });
 
   dropzone.addEventListener('click', function (e) {
-    if (!picked) return;
+    if (!picked.length) return;
     e.preventDefault();
     e.stopPropagation();
-    toTest({ src: picked.src });
+    toTest(picked[0]);
   }, true);
 
   /* ---------- 开合 ---------- */
   toggle.addEventListener('click', function () { setOpen(panel.hidden); });
   closeBtn.addEventListener('click', function () { setOpen(false); });
+  clearBtn.addEventListener('click', function () {
+    picked = [];
+    refreshPicked();
+  });
   tabs.addEventListener('click', function (e) {
     var btn = e.target.closest('.pack-tab');
     if (!btn) return;
@@ -200,4 +209,17 @@
 
   renderTabs();
   renderGrid();
+
+  // 每类实际张数（生成脚本会写 counts.json），拿不到就用默认值
+  fetch(BASE + 'counts.json')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (data) {
+      if (!data) return;
+      GROUPS.forEach(function (g) {
+        if (typeof data[g.key] === 'number') counts[g.key] = data[g.key];
+      });
+      renderTabs();
+      renderGrid();
+    })
+    .catch(function () { });
 })();

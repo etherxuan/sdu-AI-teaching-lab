@@ -74,7 +74,7 @@
 
   function initWorker() {
     try {
-      state.worker = new Worker('js/worker.js');
+      state.worker = new Worker('js/worker.js?v=20261110m');
       state.worker.onmessage = onWorkerMessage;
       state.worker.onerror = () => toast('后台训练线程出错了，请刷新页面重试。', true);
     } catch (err) {
@@ -563,24 +563,31 @@
     const labels = state.modelClassIds;
     if (!labels.length) return;
 
-    const pred = Number(msg.prediction);
-    if (!Number.isInteger(pred) || pred < 0 || pred >= labels.length) {
-      toast('模型返回了无法识别的结果，请重新训练。', true);
-      return;
+    let probs = null;
+    if (Array.isArray(msg.estimates) && msg.estimates.length) {
+      probs = new Array(labels.length).fill(0);
+      msg.estimates.forEach((e) => {
+        const i = Number(e.label);
+        if (i >= 0 && i < probs.length) probs[i] = Math.max(0, Number(e.probability) || 0);
+      });
+    } else {
+      probs = neighborScores(state.lastTestFeatures, labels.length).scores;
     }
 
-    const neighbors = neighborScores(state.lastTestFeatures, labels.length);
-    const scores = neighbors.scores;
-    const knnTop = scores.reduce((best, value, i) => (value > scores[best] ? i : best), 0);
-    const topShare = scores[pred] || 0;
-    const uncertain = topShare < 0.6 || knnTop !== pred;
+    // 文字答案直接取条形图最高的一类，保证两处永远一致
+    let pred = 0;
+    for (let i = 1; i < probs.length; i++) {
+      if (probs[i] > probs[pred]) pred = i;
+    }
+    const topShare = probs[pred] || 0;
+    const uncertain = topShare < 0.5;
 
     const rows = labels.map((id, i) => {
       const cls = state.classes.find((c) => c.id === id);
       return {
         name: cls ? cls.name : (state.modelNames[i] || `类别 ${i + 1}`),
         color: cls ? cls.color : PALETTE[i % PALETTE.length],
-        p: scores[i] || 0
+        p: probs[i] || 0
       };
     });
     const top = rows[pred];
@@ -605,7 +612,7 @@
         </div>
         ${uncertain ? '<span class="uncertain">它也不太确定</span>' : ''}
         <div class="bars">${bars}</div>
-        <p class="note">条形图表示：最像的 ${neighbors.k} 张训练照片里，每个类别占几成。最终答案由 SVM 给出，不是百分百把握。</p>
+        <p class="note">条形图就是模型的判断依据：每个类是它给出的把握程度，加起来是 100%，最高的一条就是上面的答案。</p>
         <div class="result-actions">
           <button class="btn ghost" id="testAgain">再测一张</button>
         </div>

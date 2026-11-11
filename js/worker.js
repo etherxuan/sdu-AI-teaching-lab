@@ -28,6 +28,7 @@ self.onmessage = async (event) => {
         type: Lib.SVM_TYPES.C_SVC,
         gamma: msg.gamma || 0.05,
         cost: 10,
+        probabilityEstimates: true,
         quiet: true
       });
       trained.train(samples, labels);
@@ -43,8 +44,18 @@ self.onmessage = async (event) => {
 
     if (msg.type === 'predict') {
       if (!model) throw new Error('模型还没有训练。');
-      const label = model.predictOne(Array.from(msg.features));
-      post({ type: 'predicted', requestId: msg.requestId, prediction: Number(label) });
+      try {
+        const res = model.predictOneProbability(Array.from(msg.features));
+        post({
+          type: 'predicted',
+          requestId: msg.requestId,
+          prediction: Number(res.prediction),
+          estimates: res.estimates.map((e) => ({ label: Number(e.label), probability: e.probability }))
+        });
+      } catch (err) {
+        const label = model.predictOne(Array.from(msg.features));
+        post({ type: 'predicted', requestId: msg.requestId, prediction: Number(label) });
+      }
       return;
     }
 

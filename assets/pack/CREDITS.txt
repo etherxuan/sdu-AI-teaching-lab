@@ -1,214 +1,129 @@
 照片背包图片来自 Wikimedia Commons，均为可自由使用的授权（CC / 公有领域）。
-每张图已在网页里居中裁成方形并缩到 256×256。
+挑选标准：单个果实/叶片、本色、背景干净；每张已居中裁成方形并缩到 256×256。
 
 【ginkgo】
-  ginkgo/01.jpg  Ginkgo biloba Leaf.jpg — Atlas Þə Biologist — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_Leaf.jpg
-  ginkgo/02.jpg  Ginkgo Tree Ginkgo biloba Leaf Left 3008px.jpg — Photo (c)2007 Derek Ramsey (Ram-Man) — GFDL 1.2
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_Tree_Ginkgo_biloba_Leaf_Left_3008px.jpg
-  ginkgo/03.jpg  Ginkgo biloba 01 SR 87-36-02 A.jpg — Kevmin — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_01_SR_87-36-02_A.jpg
-  ginkgo/04.jpg  Ginkgo biloba leaf 01.jpg — Kevmin — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_01.jpg
-  ginkgo/05.jpg  Ginkgo biloba leaf 2.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_2.jpg
-  ginkgo/06.jpg  Ginkgo colored leaf Nov 14 2023.jpg — LocalNatureLab — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_colored_leaf_Nov_14_2023.jpg
-  ginkgo/07.jpg  Green Ginkgo Tree Leaf.jpg — Brayden A. — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Green_Ginkgo_Tree_Leaf.jpg
-  ginkgo/08.jpg  Ginkgo biloba leaf 3.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_3.jpg
-  ginkgo/09.jpg  Ginkgo leaf closeup.jpg — No machine-readable author provided. Lorenzarius assumed (based on copyright claims). — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_leaf_closeup.jpg
-  ginkgo/10.jpg  Ginkgo Tree Ginkgo biloba Leaf Right 3008px.jpg — Photo (c)2007 Derek Ramsey (Ram-Man) — GFDL 1.2
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_Tree_Ginkgo_biloba_Leaf_Right_3008px.jpg
-  ginkgo/11.jpg  2024-10-24 - vivid yellow ginkgo leaf on distant twig against a blue sky - DSM4694.jpg — Franz van Duns — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:2024-10-24_-_vivid_yellow_ginkgo_leaf_on_distant_twig_against_a_blue_sky_-_DSM4694.jpg
-  ginkgo/12.jpg  Butterfly shaped Ginkgo Biloba new leaf (53179352607).jpg — Lua Eva Blue — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Butterfly_shaped_Ginkgo_Biloba_new_leaf_(53179352607).jpg
-  ginkgo/13.jpg  Autumn Ginkgo Leaf.jpg — Ninjatacoshell — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Autumn_Ginkgo_Leaf.jpg
-  ginkgo/14.jpg  Ginkgo biloba leaf 1.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
+  ginkgo/01.jpg  Ginkgo biloba leaf 1.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
       来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_1.jpg
-  ginkgo/15.jpg  IMG 20171005 183320 Wilhelminapark Tilburg fallen leaf Ginkgo Biloba.jpg — B222 — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:IMG_20171005_183320_Wilhelminapark_Tilburg_fallen_leaf_Ginkgo_Biloba.jpg
-  ginkgo/16.jpg  Ginkgo biloba yellow leaf on a lamp.jpg — Fargoh — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_yellow_leaf_on_a_lamp.jpg
-  ginkgo/17.jpg  Leaf of Ginkgo biloba.jpg — Ria (Marius J. Svoboda) — CC BY-SA 3.0
+  ginkgo/02.jpg  Ginkgo-Blatt -- 2024 -- 6855.jpg — Dietmar Rabich — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo-Blatt_--_2024_--_6855.jpg
+  ginkgo/03.jpg  Autumn Ginkgo Leaf.jpg — Ninjatacoshell — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Autumn_Ginkgo_Leaf.jpg
+  ginkgo/04.jpg  Ginkgo biloba Leaf.jpg — Atlas Þə Biologist — CC BY 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_Leaf.jpg
+  ginkgo/05.jpg  Ginkgo biloba.003 - A Coruña.JPG — Fernando Losada Rodríguez — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba.003_-_A_Coru%C3%B1a.JPG
+  ginkgo/06.jpg  Ginkgo biloba scanned leaf.jpg — This image was scanned or photoreproduced by Andrew Butko. Contact infоrmation -  e-mail: abutko@gmail.com. Other scans see here. — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_scanned_leaf.jpg
+  ginkgo/07.jpg  Ginkgo biloba leaf 2.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_2.jpg
+  ginkgo/08.jpg  Ginkgo leaf closeup.jpg — No machine-readable author provided. Lorenzarius assumed (based on copyright claims). — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_leaf_closeup.jpg
+  ginkgo/09.jpg  Ginkgo biloba leaf 01.jpg — Kevmin — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_01.jpg
+  ginkgo/10.jpg  Leaf of Ginkgo biloba.jpg — Ria (Marius J. Svoboda) — CC BY-SA 3.0
       来源：https://commons.wikimedia.org/wiki/File:Leaf_of_Ginkgo_biloba.jpg
-  ginkgo/18.jpg  Ginkgo tree with yellow leaf at Akihabara, Tokyo-P1000750.JPG — User:Ellery — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_tree_with_yellow_leaf_at_Akihabara,_Tokyo-P1000750.JPG
-  ginkgo/19.jpg  Ginkgo biloba leaf drop, Union Dale Cemetery, Pittsburgh.jpg — Cbaile19 — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_drop,_Union_Dale_Cemetery,_Pittsburgh.jpg
-  ginkgo/20.jpg  Ginkgo biloba 02.jpg — 未知作者 — CC BY-SA 3.0
+  ginkgo/11.jpg  Ginkgo biloba 01 SR 87-36-02 A.jpg — Kevmin — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_01_SR_87-36-02_A.jpg
+  ginkgo/12.jpg  Ginkgo colored leaf Nov 14 2023.jpg — LocalNatureLab — CC BY 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_colored_leaf_Nov_14_2023.jpg
+  ginkgo/13.jpg  Ginkgo biloba 02.jpg — 未知作者 — CC BY-SA 3.0
       来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_02.jpg
+  ginkgo/14.jpg  Ginkgo biloba leaf 3.jpg — No machine-readable author provided. Invalid username 18786~commonswiki assumed (based on copyright claims). — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Ginkgo_biloba_leaf_3.jpg
 
 【apple】
-  apple/01.jpg  PinkLadyApples.JPG — Toby Hudson — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:PinkLadyApples.JPG
-  apple/02.jpg  Apple Niğde - Niğde Elması 2017-08-05 02-1.jpg — Zeynel Cebeci — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_Ni%C4%9Fde_-_Ni%C4%9Fde_Elmas%C4%B1_2017-08-05_02-1.jpg
-  apple/03.jpg  Golden Delicious apples.jpg — Ivar Leidus — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Golden_Delicious_apples.jpg
-  apple/04.jpg  Apples in basket 2018 G2.jpg — George Chernilevsky — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Apples_in_basket_2018_G2.jpg
-  apple/05.jpg  Apple 01.jpg — Anasskoko — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_01.jpg
-  apple/06.jpg  Apple 05.jpg — Anasskoko — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_05.jpg
-  apple/07.jpg  Red Apple.jpg — Abhijit Tembhekar from Mumbai, India — CC BY 2.0
+  apple/01.jpg  Apple (1).jpg — Renee Comet (Photographer) — Public domain
+      来源：https://commons.wikimedia.org/wiki/File:Apple_(1).jpg
+  apple/02.jpg  Red Apple.jpg — Abhijit Tembhekar from Mumbai, India — CC BY 2.0
       来源：https://commons.wikimedia.org/wiki/File:Red_Apple.jpg
-  apple/08.jpg  Apple With A Leaf Mark.jpg — Red-back spider — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_With_A_Leaf_Mark.jpg
-  apple/09.jpg  Apple 04.jpg — Anasskoko — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_04.jpg
-  apple/10.jpg  Tree with red apples in Barkedal 4.jpg — W.carter — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Tree_with_red_apples_in_Barkedal_4.jpg
-  apple/11.jpg  Apple fruit in illorin.jpg — Eunice Ameh — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_fruit_in_illorin.jpg
-  apple/12.jpg  Apple Fruit.jpg — Iwai-Dialax — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_Fruit.jpg
-  apple/13.jpg  Apple Malus domestica Zoete Peppel. (actm).jpg — Agnes Monkelbaan — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_Malus_domestica_Zoete_Peppel._(actm).jpg
-  apple/14.jpg  Apple 02.jpg — Anasskoko — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_02.jpg
-  apple/15.jpg  Whole apple and bitten apple.jpg — Lucíola Correia — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Whole_apple_and_bitten_apple.jpg
-  apple/16.jpg  Detail of apple in grass.jpg — Paolo Neo — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Detail_of_apple_in_grass.jpg
-  apple/17.jpg  Apple - Flickr - Stiller Beobachter (1).jpg — Stiller Beobachter from Ansbach, Germany — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Apple_-_Flickr_-_Stiller_Beobachter_(1).jpg
-  apple/18.jpg  Apple With White Background.jpg — Karl Thomas Moore — CC BY-SA 4.0
+  apple/03.jpg  Apple 01.jpg — Anasskoko — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_01.jpg
+  apple/04.jpg  Apple With White Background.jpg — Karl Thomas Moore — CC BY-SA 4.0
       来源：https://commons.wikimedia.org/wiki/File:Apple_With_White_Background.jpg
-  apple/19.jpg  Red Apple edit.png — Red_Apple.jpg: Abhijit Tembhekar from Mumbai, India
+  apple/05.jpg  Apple 001.jpg — Caduser2003 at ml.wikipedia — CC BY-SA 2.5
+      来源：https://commons.wikimedia.org/wiki/File:Apple_001.jpg
+  apple/06.jpg  Apple 02.jpg — Anasskoko — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_02.jpg
+  apple/07.jpg  Apple With A Leaf Mark.jpg — Red-back spider — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_With_A_Leaf_Mark.jpg
+  apple/08.jpg  Apple 04.jpg — Anasskoko — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_04.jpg
+  apple/09.jpg  Apple 05.jpg — Anasskoko — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_05.jpg
+  apple/10.jpg  Apple Fruit.jpg — Iwai-Dialax — CC BY 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Apple_Fruit.jpg
+  apple/11.jpg  Red Apple edit.png — Red_Apple.jpg: Abhijit Tembhekar from Mumbai, India
 derivative work: Afanasovich (talk) — CC BY 2.0
       来源：https://commons.wikimedia.org/wiki/File:Red_Apple_edit.png
-  apple/20.jpg  Close up of fresh red apples at Sadarghat fruit market Dhaka.jpg — A S M Jobaer — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Close_up_of_fresh_red_apples_at_Sadarghat_fruit_market_Dhaka.jpg
 
 【pear】
-  pear/01.jpg  Pears-2.jpg — MartinThoma — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Pears-2.jpg
-  pear/02.jpg  Pears whole and in different stages of eating.jpg — OtuNwachinemere — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Pears_whole_and_in_different_stages_of_eating.jpg
-  pear/03.jpg  Pear DS.jpg — Augustus Binu : flickr — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Pear_DS.jpg
-  pear/04.jpg  Parkes - BIG Pears.jpg — MEGutsell — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Parkes_-_BIG_Pears.jpg
-  pear/05.jpg  Four pears.jpg — Rhododendrites — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Four_pears.jpg
-  pear/06.jpg  Pear (Nashpati).JPG — Miansari66 — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Pear_(Nashpati).JPG
-  pear/07.jpg  Fresh Pear.jpg — Hajia Hijjah — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Fresh_Pear.jpg
-  pear/08.jpg  Image of a Rocha pear.jpg — Contributers2020 — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Image_of_a_Rocha_pear.jpg
-  pear/09.jpg  Picture of a pear bearing fruits.jpg — Nubelbariloe — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Picture_of_a_pear_bearing_fruits.jpg
-  pear/10.jpg  D'anjou pear.jpg — Rhododendrites — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:D%27anjou_pear.jpg
-  pear/11.jpg  Pear (3370517511).jpg — THOR — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Pear_(3370517511).jpg
-  pear/12.jpg  Pyrus pyrifolia fruit on tree PS 2z LR.jpg — PumpkinSky — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Pyrus_pyrifolia_fruit_on_tree_PS_2z_LR.jpg
-  pear/13.jpg  2019-09-25 Pear.jpg — Wouter Hagens — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:2019-09-25_Pear.jpg
-  pear/14.jpg  Skin of a forelle pear.jpg — Rhododendrites — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Skin_of_a_forelle_pear.jpg
-  pear/15.jpg  Pear - Massachusetts.jpg — Daderot — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Pear_-_Massachusetts.jpg
-  pear/16.jpg  Cut Forelle pear.jpg — Rhododendrites — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Cut_Forelle_pear.jpg
-  pear/17.jpg  Pear Packham 78.jpg — NobbiP — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Pear_Packham_78.jpg
-  pear/18.jpg  Green pear fruit.jpg — Vitaium — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Green_pear_fruit.jpg
-  pear/19.jpg  2 x Conference pear 2017 B.jpg — Fructibus — CC0
-      来源：https://commons.wikimedia.org/wiki/File:2_x_Conference_pear_2017_B.jpg
-  pear/20.jpg  Conference pear 2017 B1.jpg — Fructibus — CC0
+  pear/01.jpg  Conference pear 2017 C1.jpg — Fructibus — CC0
+      来源：https://commons.wikimedia.org/wiki/File:Conference_pear_2017_C1.jpg
+  pear/02.jpg  Conference pear 2017 B1.jpg — Fructibus — CC0
       来源：https://commons.wikimedia.org/wiki/File:Conference_pear_2017_B1.jpg
+  pear/03.jpg  Pear Packham 78.jpg — NobbiP — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Pear_Packham_78.jpg
+  pear/04.jpg  Rocha Pear 2017 B2.jpg — Fructibus — CC0
+      来源：https://commons.wikimedia.org/wiki/File:Rocha_Pear_2017_B2.jpg
+  pear/05.jpg  Rocha Pear 2017 A4.jpg — Fructibus — CC0
+      来源：https://commons.wikimedia.org/wiki/File:Rocha_Pear_2017_A4.jpg
+  pear/06.jpg  Rocha Pear 2017 A6.jpg — Fructibus — CC0
+      来源：https://commons.wikimedia.org/wiki/File:Rocha_Pear_2017_A6.jpg
+  pear/07.jpg  Pear (3370517511).jpg — THOR — CC BY 2.0
+      来源：https://commons.wikimedia.org/wiki/File:Pear_(3370517511).jpg
+  pear/08.jpg  Pear DS.jpg — Augustus Binu : flickr — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Pear_DS.jpg
+  pear/09.jpg  2019-09-25 Pear.jpg — Wouter Hagens — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:2019-09-25_Pear.jpg
+  pear/10.jpg  Green pear fruit.jpg — Vitaium — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Green_pear_fruit.jpg
+  pear/11.jpg  Image of a Rocha pear.jpg — Contributers2020 — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Image_of_a_Rocha_pear.jpg
+  pear/12.jpg  Pyrus communis 'Conference' from Savoie.jpg — Mleprince — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Pyrus_communis_%27Conference%27_from_Savoie.jpg
 
 【strawberry】
-  strawberry/01.jpg  Sliced strawberry fruit.jpg — Paolo Neo — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Sliced_strawberry_fruit.jpg
-  strawberry/02.jpg  Strawberry fruit.jpg — Paolo Neo — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_fruit.jpg
-  strawberry/03.jpg  Strawberry (86023).jpg — Ganesh boddu — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_(86023).jpg
-  strawberry/04.jpg  Strawberry fruit in studio.jpg — Paolo Neo — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_fruit_in_studio.jpg
-  strawberry/05.jpg  STRAWBERRY SPROUTING green sprout vivipary achenes sepals (calyx) oblong fruit close-up Jordbær grønt skudd hams begerblad (bought in Norway December 2020) IMG 2475 2.jpg — Wolfmann — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:STRAWBERRY_SPROUTING_green_sprout_vivipary_achenes_sepals_(calyx)_oblong_fruit_close-up_Jordb%C3%A6r_gr%C3%B8nt_skudd_hams_begerblad_(bought_in_Norway_December_2020)_IMG_2475_2.jpg
-  strawberry/06.jpg  Strawberry fruit sliced.jpg — Paolo Neo — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_fruit_sliced.jpg
-  strawberry/07.jpg  Strawberry-2293337 960 720.jpg — atlantis0815 — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry-2293337_960_720.jpg
-  strawberry/08.jpg  Organic-strawberries Canada.jpg — Marc-Lautenbacher — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Organic-strawberries_Canada.jpg
-  strawberry/09.jpg  Fruit strawberries.jpg — Leon Brooks — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Fruit_strawberries.jpg
-  strawberry/10.jpg  Big strawberry small strawberry.jpg — Dllu — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Big_strawberry_small_strawberry.jpg
-  strawberry/11.jpg  Strawberry on white background.jpg — Joselodos — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_on_white_background.jpg
-  strawberry/12.jpg  Strawberry gariguette DSC03063.JPG — Copyright © 2005 David Monniaux — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_gariguette_DSC03063.JPG
-  strawberry/13.jpg  Fragaria Fruit Close-up.jpg — No machine-readable author provided. FoeNyx assumed (based on copyright claims). — CC BY-SA 2.5
-      来源：https://commons.wikimedia.org/wiki/File:Fragaria_Fruit_Close-up.jpg
-  strawberry/14.jpg  Garden strawberry (Fragaria × ananassa) single2.jpg — Ivar Leidus — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Garden_strawberry_(Fragaria_%C3%97_ananassa)_single2.jpg
-  strawberry/15.jpg  Macro photo of a White strawberry.jpg — Kyreb — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Macro_photo_of_a_White_strawberry.jpg
-  strawberry/16.jpg  Garden strawberry (Fragaria × ananassa).jpg — Ivar Leidus — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Garden_strawberry_(Fragaria_%C3%97_ananassa).jpg
-  strawberry/17.jpg  Fragaria - Frutilla - Strawberry - 20070318.jpg — Taken by the uploader, w:es:Usuario:Barcex — CC BY-SA 3.0
+  strawberry/01.jpg  Fragaria - Frutilla - Strawberry - 20070318.jpg — Taken by the uploader, w:es:Usuario:Barcex — CC BY-SA 3.0
       来源：https://commons.wikimedia.org/wiki/File:Fragaria_-_Frutilla_-_Strawberry_-_20070318.jpg
-  strawberry/18.jpg  Strawberry-10.jpg — 些細な日常 — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry-10.jpg
-  strawberry/19.jpg  Strawberry closeup.jpg — No machine-readable author provided. Enochlau assumed (based on copyright claims). — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_closeup.jpg
-  strawberry/20.jpg  Strawberry (6889385998).jpg — mxmstryo — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Strawberry_(6889385998).jpg
+  strawberry/02.jpg  Strawberry on white background.jpg — Joselodos — CC0
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry_on_white_background.jpg
+  strawberry/03.jpg  Strawberry on white.jpg — Tommaso — CC BY-SA 2.0
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry_on_white.jpg
+  strawberry/04.jpg  Strawberry-2.jpg — علاء — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry-2.jpg
+  strawberry/05.jpg  Strawberry fruit.jpg — Paolo Neo — Public domain
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry_fruit.jpg
+  strawberry/06.jpg  Strawberry fruit in studio.jpg — Paolo Neo — Public domain
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry_fruit_in_studio.jpg
+  strawberry/07.jpg  Strawberry gariguette DSC03063.JPG — Copyright © 2005 David Monniaux — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry_gariguette_DSC03063.JPG
+  strawberry/08.jpg  Strawberry-1.jpg — علاء — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Strawberry-1.jpg
+  strawberry/09.jpg  Single strawberry.jpg — Thamizhpparithi Maari — CC BY-SA 3.0
+      来源：https://commons.wikimedia.org/wiki/File:Single_strawberry.jpg
 
 【banana】
-  banana/01.jpg  Banana-Sitia-Crete.jpg — Petro Stelte — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana-Sitia-Crete.jpg
-  banana/02.jpg  Cut fruit Yelakki banana, bangalore, karnataka.jpg — Mohanramus — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Cut_fruit_Yelakki_banana,_bangalore,_karnataka.jpg
-  banana/03.jpg  Green raw bananas.jpg — Vitaium — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Green_raw_bananas.jpg
-  banana/04.jpg  HK food 生果 fruit yellow 香蕉 banana 去皮 peeling February 2021 SS2 09.jpg — Schawhoi Kamnls — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:HK_food_%E7%94%9F%E6%9E%9C_fruit_yellow_%E9%A6%99%E8%95%89_banana_%E5%8E%BB%E7%9A%AE_peeling_February_2021_SS2_09.jpg
-  banana/05.jpg  Banana Inflorescence with fruit.jpg — Anish Sheela — CC BY 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana_Inflorescence_with_fruit.jpg
-  banana/06.jpg  HK fruit yellow 香蕉 banana Aloha August 2022 Px3 01.jpg — 雷神18號關仁里 — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:HK_fruit_yellow_%E9%A6%99%E8%95%89_banana_Aloha_August_2022_Px3_01.jpg
-  banana/07.jpg  Banana on whitebackground.jpg — Filo gèn' — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg
-  banana/08.jpg  HK food 生果 fruit yellow 香蕉 banana 梅花點 February 2021 SS2 03.jpg — Schawhoi Kamnls — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:HK_food_%E7%94%9F%E6%9E%9C_fruit_yellow_%E9%A6%99%E8%95%89_banana_%E6%A2%85%E8%8A%B1%E9%BB%9E_February_2021_SS2_03.jpg
-  banana/09.jpg  Bunch of bananas on sale.jpg — Wilfredor — CC0
-      来源：https://commons.wikimedia.org/wiki/File:Bunch_of_bananas_on_sale.jpg
-  banana/10.jpg  Growing banana fruit.jpg — Kaweesaesther — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Growing_banana_fruit.jpg
-  banana/11.jpg  Banana fruits.jpg — Subash Bose 29 — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana_fruits.jpg
-  banana/12.jpg  Banana in tree.jpg — Hajjare — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana_in_tree.jpg
-  banana/13.jpg  Cavendish banana from Maracaibo.jpg — Wilfredor — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Cavendish_banana_from_Maracaibo.jpg
-  banana/14.jpg  Banana (71469767).jpeg — Aaron Cortazar — CC BY 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Banana_(71469767).jpeg
-  banana/15.jpg  "a close up of banana".jpg — Thamizhpparithi Maari — CC BY-SA 3.0
-      来源：https://commons.wikimedia.org/wiki/File:%22a_close_up_of_banana%22.jpg
-  banana/16.jpg  Lacatan Banana close-up.jpg — zandie — CC BY 3.0
-      来源：https://commons.wikimedia.org/wiki/File:Lacatan_Banana_close-up.jpg
-  banana/17.jpg  Banana Fruit.JPG — ZooFari — Public domain
-      来源：https://commons.wikimedia.org/wiki/File:Banana_Fruit.JPG
-  banana/18.jpg  A bunch of ripe banana.jpg — NiferO — CC BY-SA 4.0
-      来源：https://commons.wikimedia.org/wiki/File:A_bunch_of_ripe_banana.jpg
-  banana/19.jpg  Banana (white background) sme.jpg — Original: Justus Blümer from Deutschland
+  banana/01.jpg  Banana (white background) sme.jpg — Original: Justus Blümer from Deutschland
 Derivative:Kimberli Mäkäräinen — CC BY-SA 4.0
       来源：https://commons.wikimedia.org/wiki/File:Banana_(white_background)_sme.jpg
-  banana/20.jpg  Bananas (white background).jpg — Justus Blümer from Deutschland — CC BY 2.0
-      来源：https://commons.wikimedia.org/wiki/File:Bananas_(white_background).jpg
+  banana/02.jpg  Banana Fruit.JPG — ZooFari — Public domain
+      来源：https://commons.wikimedia.org/wiki/File:Banana_Fruit.JPG
+  banana/03.jpg  Banana dágua.jpg — Vitor da Silva Gonçalves — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_d%C3%A1gua.jpg
+  banana/04.jpg  Banana (3171749726).jpg — Rennett Stowe from USA — CC BY 2.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_(3171749726).jpg
+  banana/05.jpg  Banana (14237127470).jpg — Tim Reckmann from Hamm, Deutschland — CC BY 2.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_(14237127470).jpg
+  banana/06.jpg  Banana (1).jpg — Renee Comet (Photographer) — Public domain
+      来源：https://commons.wikimedia.org/wiki/File:Banana_(1).jpg
+  banana/07.jpg  Banana isolated on white.jpg — robin_24 — CC BY 2.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_isolated_on_white.jpg
+  banana/08.jpg  SingleYelakki banana, bangalore, karnataka single.jpg — Mohanramus — CC BY 4.0
+      来源：https://commons.wikimedia.org/wiki/File:SingleYelakki_banana,_bangalore,_karnataka_single.jpg
+  banana/09.jpg  Banana on whitebackground.jpg — Filo gèn' — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_on_whitebackground.jpg
+  banana/10.jpg  Banana (white background) smn.jpg — Original: Justus Blümer from Deutschland
+Derivative:Kimberli Mäkäräinen — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_(white_background)_smn.jpg
+  banana/11.jpg  Banana on white background POSTÉRIS.jpg — Filo gèn' — CC BY-SA 4.0
+      来源：https://commons.wikimedia.org/wiki/File:Banana_on_white_background_POST%C3%89RIS.jpg
