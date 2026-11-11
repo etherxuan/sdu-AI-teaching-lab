@@ -101,6 +101,7 @@
     const tx = db.transaction('images', 'readwrite');
     const id = await request(tx.objectStore('images').add({
       classId: record.classId,
+      name: record.name || '',
       thumb: record.thumb,
       features: record.features,
       createdAt: Date.now()

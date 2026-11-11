@@ -74,7 +74,7 @@
 
   function initWorker() {
     try {
-      state.worker = new Worker('js/worker.js?v=20261110m');
+      state.worker = new Worker('js/worker.js?v=20261110n');
       state.worker.onmessage = onWorkerMessage;
       state.worker.onerror = () => toast('后台训练线程出错了，请刷新页面重试。', true);
     } catch (err) {
@@ -404,7 +404,7 @@
       toast(`正在处理 ${i + 1}/${files.length} 张照片…`);
       try {
         const result = await Features.extract(file, { thumb: true });
-        await DB.addImage({ classId, features: result.features, thumb: result.thumb });
+        await DB.addImage({ classId, features: result.features, thumb: result.thumb, name: file.name || '' });
         done++;
       } catch (err) {
         console.warn(err);
@@ -713,6 +713,16 @@
   window.AILab = {
     addPhotos(classId, files) { return addPhotos(classId, files); },
     testFile(file) { return handleTestFile(file); },
-    modelReady() { return state.modelValid; }
+    modelReady() { return state.modelValid; },
+    /* 已经在数据集里的照片文件名，用来给背包里的缩略图打“训练”标记 */
+    usedNames() {
+      return DB.listAllImages().then((list) => list.map((img) => img.name).filter(Boolean));
+    },
+    /* 去掉某张照片（背包里的 × ）时用 */
+    removeByName(name) {
+      return DB.listAllImages().then((list) => Promise.all(
+        list.filter((img) => img.name === name).map((img) => DB.deleteImage(img.id))
+      )).then(() => { invalidateModel(); return reload(); }).then(() => renderAll());
+    }
   };
 })();

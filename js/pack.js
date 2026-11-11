@@ -25,6 +25,7 @@
 
   var active = GROUPS[0].key;
   var picked = [];
+  var used = {};
 
   function pad(n) {
     return ('0' + n).slice(-2);
@@ -55,11 +56,38 @@
     for (var i = 0; i < n; i++) {
       var src = srcOf(active, i);
       html += '<button class="pack-item" draggable="true" data-src="' + src + '" data-name="' + nameOf(active, i) +
-        '" title="' + nameOf(active, i) + '"><img loading="lazy" src="' + src + '" alt="">' +
-        '<span class="pack-tag">训练</span></button>';
+        '" title="' + nameOf(active, i) + '"><img loading="lazy" src="' + src + '" alt=""></button>';
     }
     grid.innerHTML = html;
     refreshPicked();
+    paintUsed();
+  }
+
+  /* 只有已经被放进训练数据集的照片，才显示“训练”角标 */
+  function paintUsed() {
+    var items = grid.querySelectorAll('.pack-item');
+    for (var i = 0; i < items.length; i++) {
+      var on = !!used[items[i].getAttribute('data-name')];
+      items[i].classList.toggle('is-used', on);
+      var tag = items[i].querySelector('.pack-tag');
+      if (on && !tag) {
+        tag = document.createElement('span');
+        tag.className = 'pack-tag';
+        tag.textContent = '训练';
+        items[i].appendChild(tag);
+      } else if (!on && tag) {
+        tag.parentNode.removeChild(tag);
+      }
+    }
+  }
+
+  function refreshUsed() {
+    if (!window.AILab || !window.AILab.usedNames) return;
+    window.AILab.usedNames().then(function (names) {
+      used = {};
+      for (var i = 0; i < names.length; i++) used[names[i]] = true;
+      paintUsed();
+    }).catch(function () { });
   }
 
   function refreshPicked() {
@@ -75,15 +103,25 @@
     panel.hidden = !open;
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     pack.classList.toggle('is-open', open);
-    if (open) renderGrid();
+    if (open) {
+      renderGrid();
+      refreshUsed();
+    }
   }
 
   /* ---------- 取图 ---------- */
+  function nameFromSrc(src) {
+    var parts = src.split('/');
+    var file = parts.pop();
+    var folder = parts.pop();
+    return folder + '-' + file;
+  }
+
   function fileOf(src) {
     return fetch(src)
       .then(function (r) { return r.blob(); })
       .then(function (blob) {
-        return new File([blob], src.split('/').pop(), { type: blob.type || 'image/jpeg' });
+        return new File([blob], nameFromSrc(src), { type: blob.type || 'image/jpeg' });
       });
   }
 
@@ -93,7 +131,9 @@
 
   function toClass(classId, list) {
     filesOf(list).then(function (files) {
-      window.AILab.addPhotos(classId, files);
+      return window.AILab.addPhotos(classId, files);
+    }).then(function () {
+      refreshUsed();
     }).catch(function () { });
   }
 
@@ -209,6 +249,7 @@
 
   renderTabs();
   renderGrid();
+  refreshUsed();
 
   // 每类实际张数（生成脚本会写 counts.json），拿不到就用默认值
   fetch(BASE + 'counts.json')
